@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { CurrencyChangesService } from '../service/currency-changes.service';
 
 @Component({
   selector: 'app-coin-list',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class CoinListComponent implements OnInit {
   banner: any = [];
+  currency: string = 'EUR';
   dataSource!: MatTableDataSource<any>;
   displayedColumns: string[] = [
     'symbol',
@@ -23,11 +25,20 @@ export class CoinListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private coingecko: ApiCoingeckoService, private router: Router) {}
+  constructor(
+    private coingecko: ApiCoingeckoService,
+    private router: Router,
+    private currencyChanges: CurrencyChangesService
+  ) {}
 
   ngOnInit(): void {
     this.getBanner();
     this.getAllCryptos();
+    this.currencyChanges.getCurrency().subscribe((value) => {
+      this.currency = value;
+      this.getAllCryptos();
+      this.getBanner();
+    });
   }
 
   applyFilter(event: Event) {
@@ -40,14 +51,14 @@ export class CoinListComponent implements OnInit {
   }
 
   getBanner() {
-    this.coingecko.getTrendingCryptoCurrency('EUR').subscribe((res) => {
+    this.coingecko.getTrendingCryptoCurrency(this.currency).subscribe((res) => {
       console.log('Trending: ', res);
       this.banner = res;
     });
   }
 
   getAllCryptos() {
-    this.coingecko.getCryptoCurrencyData('EUR').subscribe((res) => {
+    this.coingecko.getCryptoCurrencyData(this.currency).subscribe((res) => {
       console.log('All cryptos: ', res);
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
@@ -55,7 +66,7 @@ export class CoinListComponent implements OnInit {
     });
   }
 
-  redirectToDetails(row:any) {
+  redirectToDetails(row: any) {
     this.router.navigate(['coin-detail', row.id]);
     console.log('hello');
   }

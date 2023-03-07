@@ -26,7 +26,7 @@ export class ApiCoingeckoService {
   getGraphicalCryptoCurrencyData(
     coinId: string,
     currency: string,
-    days: string
+    days: number
   ) {
     return this.http.get<any>(
       this.geckoHttp +

@@ -16,8 +16,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { DynamicCurrencyPipe } from './pipes/dynamic-currency.pipe';
 import { CommonModule } from '@angular/common';
-import {MatSortModule} from '@angular/material/sort';
-
+import { MatSortModule } from '@angular/material/sort';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -40,6 +40,7 @@ import {MatSortModule} from '@angular/material/sort';
     MatPaginatorModule,
     CommonModule,
     MatSortModule,
+    NgChartsModule,
   ],
   providers: [DynamicCurrencyPipe],
   bootstrap: [AppComponent],

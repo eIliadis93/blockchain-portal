@@ -11,14 +11,35 @@
           ><br />
           <span class="title">Price: </span>
           <span class="value">{{
-            coin?.market_data.current_price.eur | dynamicCurrency : "EUR"
+            coin?.market_data.current_price.eur | dynamicCurrency : currency
           }}</span
           ><br />
           <span class="title">Market Cap: </span>
           <span class="value">{{
-            coin?.market_data.market_cap.eur | dynamicCurrency : "EUR"
+            coin?.market_data.market_cap.eur | dynamicCurrency : currency
           }}</span>
         </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <canvas
+        baseChart
+        style="width: 300px"
+        [data]="lineChartData"
+        [options]="lineChartOptions"
+        [type]="lineChartType"
+      ></canvas>
+      <div class="d-flex justify-content-around">
+        <button (click)="getGraphData(1)" class="btn btn-custom">1 day</button>
+        <button (click)="getGraphData(30)" class="btn btn-custom">
+          30 days
+        </button>
+        <button (click)="getGraphData(90)" class="btn btn-custom">
+          90 days
+        </button>
+        <button (click)="getGraphData(365)" class="btn btn-custom">
+          1 year
+        </button>
       </div>
     </div>
   </div>
