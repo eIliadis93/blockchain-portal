@@ -18,6 +18,9 @@ import { DynamicCurrencyPipe } from './pipes/dynamic-currency.pipe';
 import { CommonModule } from '@angular/common';
 import { MatSortModule } from '@angular/material/sort';
 import { NgChartsModule } from 'ng2-charts';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,8 @@ import { NgChartsModule } from 'ng2-charts';
     CoinListComponent,
     CoinDetailComponent,
     DynamicCurrencyPipe,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +46,7 @@ import { NgChartsModule } from 'ng2-charts';
     CommonModule,
     MatSortModule,
     NgChartsModule,
+    MatButtonModule,
   ],
   providers: [DynamicCurrencyPipe],
   bootstrap: [AppComponent],

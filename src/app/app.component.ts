@@ -1,19 +1,26 @@
-import { Component } from '@angular/core';
-import { CurrencyChangesService } from './service/currency-changes.service';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'blockchain-portal';
   selectedCurrency: any;
+  @ViewChild('header') header!: ElementRef;
+  @ViewChild('footer') footer!: ElementRef;
+  
+  maxContentHeight!: number;
 
-  constructor( private currencyChanges: CurrencyChangesService) {}
+  ngOnInit() {
+    this.calculateMaxContentHeight();
+  }
 
-  sendCurrency(event: string) {
-    console.log(event);
-    this.currencyChanges.setCurrency(event);
+  calculateMaxContentHeight() {
+    const windowHeight = window.innerHeight;
+    const headerHeight = this.header.nativeElement.offsetHeight;
+    const footerHeight = this.footer.nativeElement.offsetHeight;
+    this.maxContentHeight = windowHeight - headerHeight - footerHeight;
   }
 }
