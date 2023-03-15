@@ -21,6 +21,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MatButtonModule } from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatSortModule,
     NgChartsModule,
     MatButtonModule,
+    MatIconModule,
   ],
   providers: [DynamicCurrencyPipe],
   bootstrap: [AppComponent],
