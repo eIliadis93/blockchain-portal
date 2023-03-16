@@ -2,9 +2,20 @@
   <button mat-button aria-label="" routerLink="/">
     <mat-icon>home</mat-icon>
   </button>
-  <button routerLink="/coin-list" mat-button class="header-button">Cryptocurrency Market</button>
-  <button routerLink="/transaction" mat-button class="header-button">Blockchain Transaction</button>
+  <button routerLink="/coin-list" mat-button class="header-button">
+    Cryptocurrency Market
+  </button>
+  <button routerLink="/transaction" mat-button class="header-button">
+    Blockchain Transaction
+  </button>
   <span class="spacer"></span>
+  <button mat-flat-button (click)="connect()" [disabled]="connected">
+    Login
+  </button>
+  <ng-container *ngIf="errorMessage">
+    <app-error-modal [errorMessage]="errorMessage" (close)="errorMessage=''"></app-error-modal>
+  </ng-container>
+  <!-- <button mat-flat-button (click)="disconnect()" [disabled]="connected">Logout</button> -->
   <mat-form-field>
     <mat-select
       (valueChange)="sendCurrency($event)"

@@ -25,6 +25,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { HomeComponent } from './home/home.component';
 import { BlockchainTransactionComponent } from './blockchain-transaction/blockchain-transaction.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { ErrorModalComponent } from './error-modal/error-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     FooterComponent,
     HomeComponent,
     BlockchainTransactionComponent,
+    ErrorModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatButtonModule,
     MatIconModule,
     MatGridListModule,
+    MatDialogModule,
   ],
   providers: [DynamicCurrencyPipe],
   bootstrap: [AppComponent],
