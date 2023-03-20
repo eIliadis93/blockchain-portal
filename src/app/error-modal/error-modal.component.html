@@ -1,6 +1,8 @@
-<mat-dialog-content class="error-modal">
-  <p>{{ errorMessage }}</p>
-</mat-dialog-content>
-<mat-dialog-actions>
+
+<div mat-dialog-content class="text-center">
+  <h1 mat-dialog-title><img src="assets/svg/warning.svg"></h1>
+  <mat-label>{{data.message}}</mat-label>
+</div>
+<div mat-dialog-actions class="d-grid">
   <button mat-button (click)="close()">Close</button>
-</mat-dialog-actions>
+</div>

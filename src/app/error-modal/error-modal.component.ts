@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
@@ -6,9 +6,14 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   templateUrl: './error-modal.component.html',
 })
 export class ErrorModalComponent {
-  @Input() errorMessage = '';
+  message: string = '';
 
-  constructor(private dialogRef: MatDialogRef<ErrorModalComponent>) {}
+  constructor(
+    public dialogRef: MatDialogRef<ErrorModalComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: {
+      message: string,
+    })
+  { }
 
   close() {
     this.dialogRef.close();

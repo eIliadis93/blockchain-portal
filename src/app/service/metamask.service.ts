@@ -12,6 +12,7 @@ export class MetamaskService {
   private web3?: Web3;
   private readonly customWindow: CustomWindow;
 
+
   constructor() {
     this.customWindow = window as CustomWindow;
     if (this.customWindow.ethereum) {
@@ -22,7 +23,13 @@ export class MetamaskService {
   }
 
   async connect() {
-    await this.customWindow.ethereum.request({ method: 'eth_requestAccounts' });
+    try{
+      await this.customWindow.ethereum.request({ method: 'eth_requestAccounts' });
+    }
+    catch{
+      throw new Error('Please install metamask browser addon in order to continue!');
+    }
+
   }
 
   async isConnected(): Promise<boolean> {

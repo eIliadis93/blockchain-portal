@@ -1,6 +1,9 @@
+import { ErrorModalComponent } from './../error-modal/error-modal.component';
 import { MetamaskService } from './../service/metamask.service';
 import { Component, OnInit } from '@angular/core';
 import { CurrencyChangesService } from '../service/currency-changes.service';
+import { MatDialog } from '@angular/material/dialog';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +17,8 @@ export class HeaderComponent {
 
   constructor(
     private currencyChanges: CurrencyChangesService,
-    private metamaskService: MetamaskService
+    private metamaskService: MetamaskService,
+    public dialog: MatDialog,
   ) {}
 
   async checkMetamaskInstalled() {
@@ -37,6 +41,16 @@ export class HeaderComponent {
     } catch (error: any) {
       this.errorMessage = error.message;
     }
+  }
+
+  openDialog(): void {
+    if(this.errorMessage){
+      const dialogRef = this.dialog.open(ErrorModalComponent, {
+        width: '300px',
+        data: { message: this.errorMessage}
+      });
+    }
+    else return;
   }
 
   async disconnect() {
