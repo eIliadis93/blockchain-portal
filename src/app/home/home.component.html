@@ -1,29 +1,81 @@
-<div class="container">
-  <mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile>1</mat-grid-tile>
-  <mat-grid-tile>2</mat-grid-tile>
-  <mat-grid-tile>3</mat-grid-tile>
-  <mat-grid-tile>4</mat-grid-tile>
-</mat-grid-list>
-</div>
-<div id="carouselExample" class="carousel slide">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
-    </div>
+<div class="container col">
+  <div class="p-4 d-flex justify-content-center row" style="color: whitesmoke">
+    <h1 class="d-flex justify-content-center">
+      Welcome to My Blockchain Portal
+    </h1>
+    <h3>
+      We are your one-stop destination for all things blockchain, from news and
+      analysis to resources and tools. Our mission is to provide you with the
+      latest information and insights on blockchain technology, cryptocurrency,
+      decentralized applications, and more.
+    </h3>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+
+  <div class="p-2 row">
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <mat-grid-tile
+        class="myPage"
+        style="
+          background-image: url(../../assets/cryptocurrency-coding-digital-blue-background-open-source-blockchain-concept_53876-124644.avif);
+        "
+        routerLink="/coin-list"
+        >Check the Crypto Market</mat-grid-tile
+      >
+      <mat-grid-tile
+        class="myPage"
+        style="
+          background-image: url(../../assets/163942-bitcoin-cryptocurrency-iota-ethereum-cryptocurrency_exchange-x750.jpg);
+        "
+        routerLink="/transaction"
+        >Make a Transaction</mat-grid-tile
+      >
+    </mat-grid-list>
+  </div>
+  <div class="p-2 row">
+    <h2 style="color: white" class="p-1 d-flex justify-content-center">
+      Top 4 promising blockchain projects:
+    </h2>
+    <mat-grid-list cols="4" rowHeight="2:1">
+      <a href="https://ethereum.org/" target="_blank">
+        <mat-grid-tile class="link" style="background-image: url(../../assets/ethereum-logo-portrait-black-gray.png);"
+          ></mat-grid-tile
+        >
+      </a>
+      <a href="https://www.avax.network/" target="_blank">
+        <mat-grid-tile class="link" style="background-image: url(../../assets/is-avalanche-halal.jpg);"
+          ></mat-grid-tile
+        >
+      </a>
+      <a href="https://algorand.com/" target="_blank">
+        <mat-grid-tile class="link" style="background-image: url(../../assets/algorand-og-image-98d634bc4a6f00c455b35830674ae96b.png);"
+          ></mat-grid-tile
+        >
+      </a>
+      <a href="https://chain.link/" target="_blank">
+        <mat-grid-tile class="link" style="background-image: url(../../assets/chainlink.webp);"
+          ></mat-grid-tile
+        >
+      </a>
+    </mat-grid-list>
+  </div>
+  <div class="p-2 row">
+    <h2 style="color: white" class="p-1 d-flex justify-content-center">
+      More blockchain news here:
+    </h2>
+    <mat-grid-list cols="2" rowHeight="4:1" class="d-flex">
+      <a href="https://blockchain.news/" target="_blank">
+        <mat-grid-tile class="link" style="background-image: url(../../assets/EDC378BD3C6EB15DC82C7E57C0D96419376B70B7D70E218E80623D7DC722F0A6.jpg);"
+          ></mat-grid-tile
+        >
+      </a>
+      <a
+        href="https://www.investing.com/news/cryptocurrency-news/"
+        target="_blank"
+      >
+        <mat-grid-tile class="link" style="background-image: url(../../assets/investing-com-stocks-news-1.jpg);"
+          ></mat-grid-tile
+        >
+      </a>
+    </mat-grid-list>
+  </div>
 </div>
