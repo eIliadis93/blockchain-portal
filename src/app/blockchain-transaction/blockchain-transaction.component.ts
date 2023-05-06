@@ -17,9 +17,6 @@ export class BlockchainTransactionComponent implements OnInit {
   public amount!: number;
   public coinVariants: CoinVariant[] = [
     { name: 'Ethereum', value: 'ETH' },
-    { name: 'Bitcoin', value: 'BTC' },
-    { name: 'Binance Coin', value: 'BNB' },
-    { name: 'Tether', value: 'USDT' },
   ];
   public selectedCoin: string = 'ETH';
   address!: string;
@@ -76,6 +73,7 @@ export class BlockchainTransactionComponent implements OnInit {
       const txs = await this.metamaskService.getTransactions();
       this.transactions = txs.map((tx: any) => {
         const date = new Date(parseInt(tx.timeStamp) * 1000);
+        console.log("DATE", date)
         const coinType = this.selectedCoin;
         return {
           hash: tx.hash,
@@ -85,8 +83,8 @@ export class BlockchainTransactionComponent implements OnInit {
           gasPrice: tx.gasPrice,
           gasUsed: tx.gasUsed,
           blockNumber: tx.blockNumber,
-          date,
-          coinType,
+          date : date,
+          coinType : coinType,
         };
       });
     } catch (error) {

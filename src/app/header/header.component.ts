@@ -44,13 +44,12 @@ export class HeaderComponent {
   }
 
   openDialog(): void {
-    if(this.errorMessage){
+    if (this.errorMessage) {
       const dialogRef = this.dialog.open(ErrorModalComponent, {
         width: '300px',
-        data: { message: this.errorMessage}
+        data: { message: this.errorMessage },
       });
-    }
-    else return;
+    } else return;
   }
 
   async disconnect() {
@@ -59,6 +58,27 @@ export class HeaderComponent {
       this.connected = false;
     } catch (error: any) {
       this.errorMessage = error.message;
+    }
+  }
+
+  async tip() {
+    if (!this.metamaskService.isConnected()) {
+      const dialogRef = this.dialog.open(ErrorModalComponent, {
+        width: '300px',
+        data: { message: 'Please connect to Metamask first.' },
+      });
+      return;
+    }
+
+    try {
+      const result = await this.metamaskService.tip();
+      console.log(result);
+    } catch (error: any) {
+      console.error(error);
+      const dialogRef = this.dialog.open(ErrorModalComponent, {
+        width: '300px',
+        data: { message: error.message },
+      });
     }
   }
 }

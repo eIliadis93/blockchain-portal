@@ -8,8 +8,15 @@
   <button routerLink="/transaction" mat-button class="header-button">
     Blockchain Transaction
   </button>
+  <button (click)="tip()" mat-button class="header-button">Tip the Devs</button>
   <span class="spacer"></span>
-  <button mat-flat-button (click)="connect()" (click)="openDialog()" [disabled]="connected">
+  <button
+    style="margin-right: 1rem;"
+    mat-flat-button
+    (click)="connect()"
+    (click)="openDialog()"
+    [disabled]="connected"
+  >
     Login
   </button>
   <mat-form-field>

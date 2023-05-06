@@ -32,18 +32,18 @@
         <table class="table">
           <thead>
             <tr>
-              <th style="color: white;">Date</th>
               <th style="color: white;">From</th>
               <th style="color: white;">To</th>
               <th style="color: white;">Amount</th>
+              <th style="color: white;">Coin</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let tx of transactions">
-              <td>{{ tx.timeStamp }}</td>
-              <td>{{ tx.from }}</td>
-              <td>{{ tx.to }}</td>
-              <td>{{ tx.value }}</td>
+              <td style="color: white;">{{ this.fromAddress }}</td>
+              <td style="color: white;">{{ tx.to }}</td>
+              <td style="color: white;">{{ tx.value }}</td>
+              <td style="color: white;">{{ this.selectedCoin }}</td>
             </tr>
           </tbody>
         </table>
