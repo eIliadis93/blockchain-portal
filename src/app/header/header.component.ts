@@ -72,7 +72,6 @@ export class HeaderComponent {
 
     try {
       const result = await this.metamaskService.tip();
-      console.log(result);
     } catch (error: any) {
       console.error(error);
       const dialogRef = this.dialog.open(ErrorModalComponent, {

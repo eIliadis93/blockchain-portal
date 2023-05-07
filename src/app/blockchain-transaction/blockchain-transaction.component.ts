@@ -73,7 +73,6 @@ export class BlockchainTransactionComponent implements OnInit {
       const txs = await this.metamaskService.getTransactions();
       this.transactions = txs.map((tx: any) => {
         const date = new Date(parseInt(tx.timeStamp) * 1000);
-        console.log("DATE", date)
         const coinType = this.selectedCoin;
         return {
           hash: tx.hash,

@@ -52,14 +52,12 @@ export class CoinListComponent implements OnInit {
 
   getBanner() {
     this.coingecko.getTrendingCryptoCurrency(this.currency).subscribe((res) => {
-      console.log('Trending: ', res);
       this.banner = res;
     });
   }
 
   getAllCryptos() {
     this.coingecko.getCryptoCurrencyData(this.currency).subscribe((res) => {
-      console.log('All cryptos: ', res);
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -68,6 +66,5 @@ export class CoinListComponent implements OnInit {
 
   redirectToDetails(row: any) {
     this.router.navigate(['coin-detail', row.id]);
-    console.log('hello');
   }
 }

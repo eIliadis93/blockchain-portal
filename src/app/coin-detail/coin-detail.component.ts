@@ -61,13 +61,11 @@ export class CoinDetailComponent implements OnInit {
       this.getGraphData(this.days);
       this.getCryptoCurrencyData();
     });
-    console.log(this.coin);
   }
 
   getCryptoCurrencyData() {
     this.coingecko.getCryptoCurrencyById(this.coinId).subscribe((res) => {
       this.coin = res;
-      console.log(this.coin);
       if (this.currency === 'USD') {
         res.market_data.current_price.eur = res.market_data.current_price.usd;
         res.market_data.market_cap.eur = res.market_data.market_cap.usd;
