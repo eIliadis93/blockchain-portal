@@ -1,9 +1,8 @@
 import { ErrorModalComponent } from './../error-modal/error-modal.component';
 import { MetamaskService } from './../service/metamask.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CurrencyChangesService } from '../service/currency-changes.service';
 import { MatDialog } from '@angular/material/dialog';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-header',
