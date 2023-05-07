@@ -17,4 +17,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 ## Git Page Hosting
-Since this is an angular application I encountered some errors to host this page on Git, I will try to solve it as soon as possible.
+The app is running normally, some error with the images need to be fixed.
