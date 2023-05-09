@@ -46,7 +46,7 @@ export class MetamaskService {
     if (accounts?.length) {
       return accounts[0];
     } else {
-      throw new Error('No accounts found');
+      throw new Error('Please Log In to continue!');
     }
   }
 
